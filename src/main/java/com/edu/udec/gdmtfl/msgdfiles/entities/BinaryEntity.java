@@ -1,11 +1,16 @@
 package com.edu.udec.gdmtfl.msgdfiles.entities;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "\"BINARIOS\"")
@@ -20,8 +25,8 @@ public class BinaryEntity {
 	@Column(name = "\"NOMBRE\"")
 	private String name;
 
-	@Column(name = "\"TIPO_CONTENIDO\"")
-	private String type;
+	@Column(name = "\"ID_TIPO_FORMATO_FK\"")
+	private FormatTypeEntity formatType;
 
 	@Lob
 	@Type(type = "")
@@ -35,12 +40,12 @@ public class BinaryEntity {
 
 	}
 
-	public BinaryEntity(String name, String type, byte[] data, Date creationDate) {
-        this.name = name;
-        this.type = type;
-        this.data = data;
-        this.creationDate = creationDate;
-    }
+	public BinaryEntity(String name, FormatTypeEntity formatType, byte[] data, Date creationDate) {
+		this.name = name;
+		this.formatType = formatType;
+		this.data = data;
+		this.creationDate = creationDate;
+	}
 
 	public String getId() {
 		return id;
@@ -58,12 +63,12 @@ public class BinaryEntity {
 		this.name = name;
 	}
 
-	public String getType() {
-		return type;
+	public FormatTypeEntity getType() {
+		return formatType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setType(FormatTypeEntity formatType) {
+		this.formatType = formatType;
 	}
 
 	public byte[] getData() {
