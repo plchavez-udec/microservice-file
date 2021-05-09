@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "\"TIPOS_FORMATO\"")
+@Table(name = "\"FORMATOS\"")
 public class FormatTypeEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;

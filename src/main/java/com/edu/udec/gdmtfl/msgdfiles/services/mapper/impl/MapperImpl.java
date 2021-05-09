@@ -11,27 +11,21 @@ import com.edu.udec.gdmtfl.msgdfiles.services.mapper.IMapper;
 public class MapperImpl implements IMapper {
 	@Override
 	public DTOBinary mapOutBinary(BinaryEntity binaryEntity) {
-		DTOBinary dtoBinary = new DTOBinary();
-		dtoBinary.setId(binaryEntity.getId());
-		dtoBinary.setName(binaryEntity.getName());
-		dtoBinary.setType(binaryEntity.getType().getName());
-		dtoBinary.setData(binaryEntity.getData());
-		return dtoBinary;
+		/*
+		 * DTOBinary dtoBinary = new DTOBinary(); dtoBinary.setId(binaryEntity.getId());
+		 * dtoBinary.setName(binaryEntity.getName());
+		 * dtoBinary.setData(binaryEntity.getData());
+		 */
+		return null;
 	}
 
 	@Override
 	public DTOOutCreateFile mapOutCreateFile(BinaryEntity binaryEntity) {
-
 		DTOOutCreateFile outCreateFile = new DTOOutCreateFile();
 		outCreateFile.setFile(binaryEntity.getId());
-		outCreateFile.setContentType(binaryEntity.getType().getName());
-
-		String family = binaryEntity.getName();
-		String[] parts = family.split("\\.");
-		;
-
-		outCreateFile.setDocumentFamily(parts[parts.length - 1]);
-
+		outCreateFile.setContentType(binaryEntity.getContentType());
+		outCreateFile.setSize(binaryEntity.getSize());
+		outCreateFile.setDocumentFamily(binaryEntity.getFamily());
 		return outCreateFile;
 	}
 }

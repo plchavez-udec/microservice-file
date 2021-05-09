@@ -8,6 +8,6 @@ import java.io.IOException;
 
 public interface IBinaryService {
 
-    DTOOutCreateFile storeBinary(MultipartFile file) throws IOException;
+	DTOOutCreateFile storeBinary(MultipartFile file);
     DTOBinary getBinary(String id);
 }

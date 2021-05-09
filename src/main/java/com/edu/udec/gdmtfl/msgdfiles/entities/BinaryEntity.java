@@ -1,5 +1,6 @@
 package com.edu.udec.gdmtfl.msgdfiles.entities;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,11 +23,14 @@ public class BinaryEntity {
 	@Column(name = "\"ID\"")
 	private String id;
 
-	@Column(name = "\"NOMBRE\"")
-	private String name;
+	@Column(name = "\"TIPO_CONTENIDO\"")
+	private String contentType;
 
-	@Column(name = "\"ID_TIPO_FORMATO_FK\"")
-	private FormatTypeEntity formatType;
+	@Column(name = "\"FAMILIA\"")
+	private String family;
+
+	@Column(name = "\"TAMANO\"")
+	private Long size;
 
 	@Lob
 	@Type(type = "")
@@ -36,55 +40,58 @@ public class BinaryEntity {
 	@Column(name = "\"FECHA_CREACION\"")
 	private Date creationDate;
 
-	public BinaryEntity() {
-
-	}
-
-	public BinaryEntity(String name, FormatTypeEntity formatType, byte[] data, Date creationDate) {
-		this.name = name;
-		this.formatType = formatType;
-		this.data = data;
-		this.creationDate = creationDate;
-	}
-
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public String getContentType() {
+		return contentType;
 	}
 
-	public String getName() {
-		return name;
+	public String getFamily() {
+		return family;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public FormatTypeEntity getType() {
-		return formatType;
-	}
-
-	public void setType(FormatTypeEntity formatType) {
-		this.formatType = formatType;
+	public Long getSize() {
+		return size;
 	}
 
 	public byte[] getData() {
 		return data;
 	}
 
-	public void setData(byte[] data) {
-		this.data = data;
-	}
-
 	public Date getCreationDate() {
 		return creationDate;
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public void setFamily(String family) {
+		this.family = family;
+	}
+
+	public void setSize(Long size) {
+		this.size = size;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
+	}
+
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
+	}
+
+	@Override
+	public String toString() {
+		return "BinaryEntity [id=" + id + ", contentType=" + contentType + ", family=" + family + ", size=" + size
+				+ ", data=" + Arrays.toString(data) + ", creationDate=" + creationDate + "]";
 	}
 
 }
