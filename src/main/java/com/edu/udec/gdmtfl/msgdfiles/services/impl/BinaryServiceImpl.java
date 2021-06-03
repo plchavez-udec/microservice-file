@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.edu.udec.gdmtfl.msgdfiles.dtos.DTOBinary;
 import com.edu.udec.gdmtfl.msgdfiles.dtos.DTOOutCreateFile;
 import com.edu.udec.gdmtfl.msgdfiles.entities.BinaryEntity;
 import com.edu.udec.gdmtfl.msgdfiles.exceptions.BinaryNonExistentException;
@@ -58,11 +57,10 @@ public class BinaryServiceImpl implements IBinaryService {
 	}
 
 	@Override
-	public DTOBinary getBinary(String id) {
+	public byte[] getBinary(String id) {
 		BinaryEntity binaryEntity = iBinaryRepository.findById(id)
 				.orElseThrow(() -> new BinaryNonExistentException(id));
-		DTOBinary dtoBinary = iMapper.mapOutBinary(binaryEntity);
-		return dtoBinary;
+		return binaryEntity.getData();
 	}
 
 }

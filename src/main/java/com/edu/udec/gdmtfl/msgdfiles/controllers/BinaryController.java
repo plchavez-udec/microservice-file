@@ -31,8 +31,7 @@ public class BinaryController {
 	@GetMapping(value = "/file/{id}")
 	public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable("id") String id,
 			@RequestParam(value = "fileName") final String keyName) {
-		DTOBinary binary = iBinaryService.getBinary(id);
-		final byte[] data = binary.getData();
+		byte[] data = iBinaryService.getBinary(id);
 		final ByteArrayResource resource = new ByteArrayResource(data);
 		return ResponseEntity.ok().contentLength(data.length).header("Content-type", "application/octet-stream")
 				.header("Content-disposition", "attachment; filename=\"" + keyName + "\"").body(resource);
