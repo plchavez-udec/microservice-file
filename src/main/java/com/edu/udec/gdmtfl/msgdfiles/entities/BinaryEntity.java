@@ -22,21 +22,18 @@ public class BinaryEntity {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name = "\"ID\"")
 	private String id;
-
 	@Column(name = "\"TIPO_CONTENIDO\"")
 	private String contentType;
-
 	@Column(name = "\"FAMILIA\"")
 	private String family;
-
 	@Column(name = "\"TAMANO\"")
 	private Long size;
-
+	@Column(name = "\"NOMBRE\"")
+	private String name;
 	@Lob
 	@Type(type = "")
 	@Column(name = "\"DATOS\"")
 	private byte[] data;
-
 	@Column(name = "\"FECHA_CREACION\"")
 	private Date creationDate;
 
@@ -88,10 +85,18 @@ public class BinaryEntity {
 		this.creationDate = creationDate;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "BinaryEntity [id=" + id + ", contentType=" + contentType + ", family=" + family + ", size=" + size
-				+ ", data=" + Arrays.toString(data) + ", creationDate=" + creationDate + "]";
+				+ ", name=" + name + ", data=" + Arrays.toString(data) + ", creationDate=" + creationDate + "]";
 	}
 
 }

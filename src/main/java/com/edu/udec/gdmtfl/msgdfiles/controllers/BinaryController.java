@@ -3,6 +3,7 @@ package com.edu.udec.gdmtfl.msgdfiles.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.edu.udec.gdmtfl.msgdfiles.dtos.DTOBinary;
 import com.edu.udec.gdmtfl.msgdfiles.dtos.DTOOutCreateFile;
 import com.edu.udec.gdmtfl.msgdfiles.services.IBinaryService;
 
+//@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "v1/file")
 public class BinaryController {
@@ -23,7 +25,8 @@ public class BinaryController {
 	private IBinaryService iBinaryService;
 
 	@PostMapping("")
-	public ResponseEntity<DTOOutCreateFile> uploadFile(@RequestParam("file") MultipartFile file) {
+	public ResponseEntity<DTOOutCreateFile> uploadFile(
+			@RequestParam("file") MultipartFile file) {
 		DTOOutCreateFile fileCreate = iBinaryService.storeBinary(file);
 		return ResponseEntity.ok(fileCreate);
 	}

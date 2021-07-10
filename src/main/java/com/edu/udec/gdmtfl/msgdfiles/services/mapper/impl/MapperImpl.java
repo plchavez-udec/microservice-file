@@ -26,6 +26,7 @@ public class MapperImpl implements IMapper {
 		outCreateFile.setContentType(binaryEntity.getContentType());
 		outCreateFile.setSize(binaryEntity.getSize());
 		outCreateFile.setDocumentFamily(binaryEntity.getFamily());
+		outCreateFile.setName(binaryEntity.getName());
 		return outCreateFile;
 	}
 }

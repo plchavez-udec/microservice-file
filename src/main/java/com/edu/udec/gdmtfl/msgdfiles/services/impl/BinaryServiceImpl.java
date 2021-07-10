@@ -44,6 +44,7 @@ public class BinaryServiceImpl implements IBinaryService {
 			fileDb = new BinaryEntity();
 			fileDb.setContentType(file.getContentType());
 			fileDb.setFamily(parts[parts.length - 1]);
+			fileDb.setName(file.getOriginalFilename());
 			fileDb.setSize(file.getSize());
 			fileDb.setData(file.getBytes());
 			fileDb.setCreationDate(new Date());
@@ -62,5 +63,4 @@ public class BinaryServiceImpl implements IBinaryService {
 				.orElseThrow(() -> new BinaryNonExistentException(id));
 		return binaryEntity.getData();
 	}
-
 }
