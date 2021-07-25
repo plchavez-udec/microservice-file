@@ -9,6 +9,7 @@ public class DTOOutCreateFile implements Serializable {
 	private String contentType;
 	private String documentFamily;
 	private String name;
+	private String unit;
 	private long size;
 
 	public String getFile() {
@@ -54,7 +55,7 @@ public class DTOOutCreateFile implements Serializable {
 	@Override
 	public String toString() {
 		return "DTOOutCreateFile [file=" + file + ", contentType=" + contentType + ", documentFamily=" + documentFamily
-				+ ", name=" + name + ", size=" + size + "]";
+				+ ", name=" + name + ", unit=" + unit + ", size=" + size + "]";
 	}
 
 }

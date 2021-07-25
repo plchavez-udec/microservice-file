@@ -11,11 +11,6 @@ import com.edu.udec.gdmtfl.msgdfiles.services.mapper.IMapper;
 public class MapperImpl implements IMapper {
 	@Override
 	public DTOBinary mapOutBinary(BinaryEntity binaryEntity) {
-		/*
-		 * DTOBinary dtoBinary = new DTOBinary(); dtoBinary.setId(binaryEntity.getId());
-		 * dtoBinary.setName(binaryEntity.getName());
-		 * dtoBinary.setData(binaryEntity.getData());
-		 */
 		return null;
 	}
 

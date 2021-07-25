@@ -27,7 +27,9 @@ public class BinaryEntity {
 	@Column(name = "\"FAMILIA\"")
 	private String family;
 	@Column(name = "\"TAMANO\"")
-	private Long size;
+	private long size;
+	@Column(name = "\"UNIDAD\"")
+	private String unit;
 	@Column(name = "\"NOMBRE\"")
 	private String name;
 	@Lob
@@ -49,7 +51,7 @@ public class BinaryEntity {
 		return family;
 	}
 
-	public Long getSize() {
+	public long getSize() {
 		return size;
 	}
 
@@ -73,7 +75,7 @@ public class BinaryEntity {
 		this.family = family;
 	}
 
-	public void setSize(Long size) {
+	public void setSize(long size) {
 		this.size = size;
 	}
 
@@ -93,10 +95,19 @@ public class BinaryEntity {
 		this.name = name;
 	}
 
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
 	@Override
 	public String toString() {
 		return "BinaryEntity [id=" + id + ", contentType=" + contentType + ", family=" + family + ", size=" + size
-				+ ", name=" + name + ", data=" + Arrays.toString(data) + ", creationDate=" + creationDate + "]";
+				+ ", unit=" + unit + ", name=" + name + ", data=" + Arrays.toString(data) + ", creationDate="
+				+ creationDate + "]";
 	}
 
 }

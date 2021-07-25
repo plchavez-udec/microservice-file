@@ -23,10 +23,8 @@ public class BinaryServiceImpl implements IBinaryService {
 
 	@Autowired
 	private IBinaryRepository iBinaryRepository;
-
 	@Autowired
 	private IFormatTypeRepository formatTypeRepository;
-
 	@Autowired
 	private IMapper iMapper;
 
@@ -45,8 +43,8 @@ public class BinaryServiceImpl implements IBinaryService {
 			fileDb.setContentType(file.getContentType());
 			fileDb.setFamily(parts[parts.length - 1]);
 			fileDb.setName(file.getOriginalFilename());
-			fileDb.setSize(file.getSize());
 			fileDb.setData(file.getBytes());
+			fileDb.setSize(file.getSize());
 			fileDb.setCreationDate(new Date());
 		} catch (IOException e) {
 			throw new GeneralException("Ocurrio un error a la hora de cargar el archivo");
@@ -63,4 +61,5 @@ public class BinaryServiceImpl implements IBinaryService {
 				.orElseThrow(() -> new BinaryNonExistentException(id));
 		return binaryEntity.getData();
 	}
+
 }
